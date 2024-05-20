@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow" />
+<meta name="apple-mobile-web-app-status-bar" content="#232323" />
+<meta name="theme-color" content="#232323" />
+<link rel="manifest" href="./manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<title>すいかゲーム - スイカゲームをオンラインでプレイしよう。</title>
+<meta name="description" content="【合体スイカ！】フルーツゲーム - スマホ/PCで無料WEBプレイ. ミステリー、戦闘、探検に満ちた旅に出かけ、忘れ去られた世界の秘密を解き明かそう。あなた自身の選択で物語の結末を作り上げ、最初から最後まで夢中にさせる豊かな物語に没頭しよう。">
+<link rel="canonical" href="https://kaloodinaz.github.io/suika-jp/" />
+<link rel="shortcut icon" href="./icons/icon-72x72.png">
+<link rel="apple-touch-icon" href="./icons/icon-192x192.png" />
+
+<style>
+html{line-height:1.15;max-width:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
+h1{text-align:center;font-size:2.2em;margin:.67em 0}
+h2{font-size:1.8em}
+a{background-color:transparent}
+img{border-style:none;height:auto;border-radius:16px}
+button{font-family:inherit;font-size:100%;line-height:1.15;margin:0;overflow:visible;text-transform:none;-webkit-appearance:button}
+button::-moz-focus-inner{border-style:none;padding:0}
+button:-moz-focusring{outline:1px dotted #000}
+::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
+*{margin:0;padding:0;border:0;outline:none;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;text-size-adjust:none}
+html{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;overflow-x:hidden;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%}
+body{font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.8571428571429;color:#232427;background-color:#fff}
+a{text-decoration:none;color:inherit}
+ul,li{list-style:disc;padding:0;margin:0}
+.site-content ul,.site-content ol{padding-left:40px;}
+h1,h2{font-weight:700;text-transform:capitalize}
+button{background-color:transparent;outline:none}
+button{-webkit-transition:background-color .2s ease 0s,color .2s ease 0s,border-color .2s ease 0;-o-transition:background-color .2s ease 0s,color .2s ease 0s,border-color .2s ease 0;transition:background-color .2s ease 0s,color .2s ease 0s,border-color .2s ease 0}
+button{border:0}
+.container{position:relative;max-width:1255px;margin:auto;padding:0 15px;-webkit-box-sizing:border-box;box-sizing:border-box}
+.row{width:100%}
+.d-block{display:block}
+.d-flex{display:-webkit-box;display:-ms-flexbox;display:flex;max-width:100%}
+.sp{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+.jc{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.p-r{position:relative}
+.text-overflow{overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;line-height:1.5}
+.text-center{text-align:center}
+.al{-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.center-box{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.nav,.nav li{list-style:none;margin:0;padding:0}
+.header{background-color:#2a2724;border-bottom:1px solid #BDCAD2;font-weight:600}
+.nav{width:100%;text-align:right;margin-left:auto;overflow:hidden;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
+.nav-item{text-align:center;display:-webkit-box;display:-ms-flexbox;display:flex}
+.menu-header-bar{height:70px;position:relative}
+.nav-link{padding:15px 10px;-webkit-box-sizing:border-box;box-sizing:border-box;text-transform:capitalize;color:#fff;font-size:16px}
+.mobile-icon{width:40px;height:40px;padding:8px;position:absolute;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);right:-7px;cursor:pointer;display:none}
+.mobile-menu{position:fixed;top:0;width:100%;max-width:300px;right:-310px;height:100%;background-color:#423232;border-top:1px solid #dbe1e5;-webkit-box-shadow:rgba(0,0,0,0.25) 0 .0625em 0.0625em,rgba(0,0,0,0.25) 0 .125em 0.5em,rgba(255,255,255,0.1) 0 0 0 1px inset;box-shadow:rgba(0,0,0,0.25) 0 .0625em 0.0625em,rgba(0,0,0,0.25) 0 .125em 0.5em,rgba(255,255,255,0.1) 0 0 0 1px inset;-webkit-transition:.4s all;-o-transition:.4s all;transition:.4s all;z-index:9999}
+.mobile-close{width:40px;height:40px;position:relative;margin:15px 7px 15px auto;cursor:pointer}
+.mobile-menu-link{display:block;background-color:#FAFAFA;border-bottom:1px solid #e5e7eb;border-left:5px solid #423232;color:#111;margin-right:0;padding:15px 10px;text-transform:uppercase;font-size:14px;font-weight:600}
+.nav{width:unset;margin-left:unset}
+.game_item{padding-top:15px;padding-bottom:15px;min-height:calc(100vh - 147px)}
+.site-content{font-size:18px}
+.site-content a{color:#007bff}
+h1{text-transform:capitalize}
+.grid-frame{display:-webkit-box;display:-ms-flexbox;display:flex;padding:0 15px;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+.frame-box-game{width:100%;max-width:1225px}
+#append-rate{margin:15px 0}
+.content__game{padding:15px 0}
+.other__game{background-color:#efede3;padding:15px 0}
+.orther-game{text-align:center;color:#1a0101;margin:15px 0;font-weight:600}
+.games-child{flex-wrap:wrap;display:flex;justify-content:center}
+.a-child{width:170px;margin:10px;text-decoration:none;background:#fff;box-shadow:0 5px 20px rgb(0 0 0 / 7%);border-radius:4px}
+.a-child:hover{box-shadow:0 5px 20px #000}
+.a-child img{width:100%;height:100%;transition:transform .35s}
+.a-child:hover img{transform:scale(1.15)}
+.child-image{height:133px;overflow:hidden;border-radius:4px 4px 0 0}
+.child-info{padding:10px 15px 15px}
+.child-title{font-weight:600;text-align:center;font-size:20px;margin-bottom:5px;text-transform:capitalize}
+.child-excerpt{font-size:13px;color:#2b2e3a;margin-top:10px;text-align:center}
+.group-star svg{margin:0 2px}
+.rate-average{font-weight:800;font-size:14px;margin-left:5px;line-height:16px}
+.cate__tag--item{display:inline-block;padding:5px 8px;margin-right:8px;margin-top:8px;background-color:#f4ede2;border-radius:5px;transition:all .2s ease;text-transform:lowercase;font-size:16px}
+.cate__tag--item:hover{transform:translateY(-5px);color:#423232!important}
+footer{margin-top:auto;background-color:#232427;padding:5px 0}
+.menu-footer-bar{text-align:center}
+.link{display:inline-block;color:#fff;font-size:16px;margin:0;padding:5px 15px}
+.link:hover{text-decoration:underline}
+.nav-link:hover{color:#afafaf}
+@media (min-width: 1256px) {
+.mobile-menu{right:-310px!important}
+}
+@media (max-width: 1255px) {
+.nav{display:none}
+.mobile-icon{display:-webkit-box;display:-ms-flexbox;display:flex}
+}
+.rainbow-text{background:linear-gradient(to right,red,orange,yellow,green,#d2e3d2,#a669d2,violet);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+#iframehtml5{border:none;border-radius:10px;background-color:#9C27B0;background:linear-gradient(-45deg,#FF5722,#E91E63,#3F51B5,#673AB7) 0 0 / 300% 300%;background-size:cover;background-position:center}
+#overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:999}
+#start-img{width:128px;height:128px;cursor:pointer;border-radius:10%}
+#start-btn{padding:10px 20px;font-size:26px;cursor:pointer}
+.play-button{line-height:28px;background:#fbaf41;cursor:pointer;padding:5px 40px;border-radius:5px;font-size:26px;color:#fff;position:relative}
+.play-button:before{content:"";background:linear-gradient(45deg,red,#40ff00,#002bff,#7a00ff,#ff00c8,red);position:absolute;top:-2px;left:-2px;background-size:400%;z-index:0;filter:blur(5px);width:calc(100% + 4px);height:calc(100% + 4px);animation:glowing 10s linear infinite;transition:opacity .1s ease-in-out;border-radius:10px}
+.play-button:after{content:"ゲームします";top:50%;transform:translateY(-50%);font-weight:700;position:absolute;white-space:nowrap;left:0;right:0;text-align:center}
+@keyframes glowing {
+0%{background-position:0 0}
+50%{background-position:400% 0}
+to{background-position:0 0}
+}
+.game-title{color:#fff;font-size:22px;margin-top:30px;margin-bottom:30px;display:block}
+.bread-crumb-item{text-transform:capitalize}
+.bread-crumb-item:after{content:'/';font-size:10px;color:#b8b8b8;margin:0 5px}
+.bread-after:after{content:""}
+#fullscreenButton{padding:15px 30px;margin:15px;background-color:#007bff;color:#fff;border:none;border-radius:5px;cursor:pointer;font-size:16px}
+#fullscreenButtonContainer{display:flex;justify-content:center;align-items:center;text-align:center}
+#fullscreenButton:hover{background-color:#0056b3}
+#fullscreenButton svg{margin-left:5px}
+.facebook-button,.reddit-button,.twitter-button,.whatsapp-button{padding:10px 20px;border-radius:5px;margin:5px;cursor:pointer;transition:background-color .3s ease;font-family:'Work Sans',sans-serif;font-size:16px;font-weight:700}
+.facebook-button{background-color:#3b5998;color:#fff}
+.twitter-button{background-color:#000;color:#fff}
+.whatsapp-button{background-color:#25d366;color:#fff}
+.reddit-button{background-color:#ff4500;color:#fff}
+.facebook-button:hover,.reddit-button:hover,.twitter-button:hover,.whatsapp-button:hover{background-color:rgba(0,0,0,0.6)}
+.share-button{padding:10px 20px;border-radius:5px;margin:5px;cursor:pointer;transition:background-color .3s ease;font-family:'Work Sans',sans-serif;font-size:16px;font-weight:700;background-color:#bb281d;color:#fff}
+.share-button:hover{background-color:#f9483b}
+#shareResult,#shareResultMobile{text-align:center}
+.center{display:flex;flex-wrap:wrap;justify-content:center;align-items:center}
+.block{display:flex;justify-content:center;align-items:center;margin:0 auto}
+.block-300{display:none;width:100%;height:250px;background-color:#181818}
+.block-728{display:none;width:100%;max-width:728px;height:90px;background-color:#292929}
+@media only screen and (max-width: 738px) {
+.block-300{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;margin-bottom:10px;border-radius:10px;margin-top:10px}
+.block-728{display:none}
+}
+@media only screen and (min-width: 739px) {
+.block-728{display:flex;justify-content:center;align-items:center;margin-bottom:10px;border-radius:10px;margin-top:10px}
+.block-300{display:none}
+}
+</style>
+
+</head>
+<body>
+<script>
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/sw.js')
+.then(registration => {console.log('Service Worker registered successfully:', registration);})
+.catch(error => {console.log('Error in Service Worker registration:', error);});});}
+</script>
+<header class="header">
+<div class="container">
+<div class="row">
+<div class="d-flex al sp menu-header-bar">
+<div class="site-logo">
+<a class="d-block" href="./">
+<img loding="lazy" class="d-block" height="60" width="60" src="./icons/icon-72x72.png" alt="suika game unblocked" />
+</a>
+</div>
+
+<ul id="nav-bar" class="nav">
+<li class="nav-item">
+<a target="_blank" rel="noopener" class="nav-link rainbow-text" href="https://iogamesio.com/">イオゲーム</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="https://watermelongame.pages.dev/" target="_blank" rel="noopener">スイカゲーム</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="https://coreballgame.pages.dev/" target="_blank" rel="noopener">コアボールゲーム</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="https://macaroni-art.pages.dev/" target="_blank" rel="noopener">マカロニドロー</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="https://thepasswordgame.pages.dev/" target="_blank" rel="noopener">パスワードゲーム</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="https://jelly-truck.pages.dev/" target="_blank" rel="noopener">ゼリートラックのブロックが解除されました</a>
+</li>           
+
+</ul>
+<div class="d-flex al jc mobile-icon">
+<svg fill="#fff" height="24px" viewBox="0 -53 384 384" width="24px" xmlns="https://www.w3.org/2000/svg">
+<path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+<path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+<path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!--<div class="row">
+    <div class="block block-728"></div>
+    <div class="block block-728"></div>
+    <div class="block block-300"></div>
+    <div class="block block-300"></div>
+            </div> -->
+<div class="mobile-menu">
+<div class="d-flex al jc mobile-close">
+<svg width="24" height="24" fill="#fff" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;">
+<g>
+<g>
+<path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717 L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859 c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287 l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285 L284.286,256.002z"/>
+</g>
+</g>
+</svg>
+</div>
+<div class="mobile-menu-bar">
+<a target="_blank" rel="noopener" class="mobile-menu-link rainbow-text" href="https://iogamesio.com/">io Games</a>
+<a target="_blank" rel="noopener" class="mobile-menu-link" href="https://watermelongame.pages.dev/">スイカゲーム</a>
+<a target="_blank" rel="noopener" class="mobile-menu-link" href="https://coreballgame.pages.dev/">Core Ball Game</a>
+<a target="_blank" rel="noopener" class="mobile-menu-link" href="https://macaroni-art.pages.dev/">Macaroni Art</a>
+<a target="_blank" rel="noopener" class="mobile-menu-link" href="https://thepasswordgame.pages.dev/">パスワードゲーム</a>
+<a target="_blank" rel="noopener" class="mobile-menu-link" href="https://jelly-truck.pages.dev/">ゼリートラックのブロックが解除されました</a>
+<a target="_blank" rel="noopener" class="mobile-menu-link" href="./">ホームページ</a>
+    </div>
+</div>
+<div class="game_item">
+    <div class="frame-box">
+<div class="row">
+<div class="grid-frame">
+<div class="p-r frame-box-game" style="margin:0 auto">
+<iframe title="スイカ ゲーム オンライン" id="iframehtml5" class="d-block" width="100%" height="550px" target="_parent"  src="" data-oldsrc="./game/" scrolling="auto" frameborder="0" style="border:0;" allowfullscreen>
+</iframe>
+<div id="overlay">
+<img loding="lazy" id="start-img" src="./icons/icon-128x128.png" alt="Suika Unblocked">
+<span class="game-title" id="game-title">スイカゲーム</span>
+<button id="start-btn" class="play-button">ゲームします</button>
+</div>
+</div>
+</div>
+</div>
+
+    </div>
+<div id="fullscreenButtonContainer">
+<button id="fullscreenButton" onclick="toggleFullscreen()">フルスクリーン切り替え <svg width="13px" height="13px" viewBox="0 0 14 14" xmlns="https://www.w3.org/2000/svg"><path d="M2 9H0v5h5v-2H2V9ZM0 5h2V2h3V0H0v5Zm12 7H9v2h5V9h-2v3ZM9 0v2h3v3h2V0H9Z" fill="#ffffff" fill-rule="evenodd" class="fill-000000"></path></svg></button>
+</div>
+
+<div id="shareResult" class="center">
+    <div class="facebook-button" onclick="shareFacebook()">Facebookでシェア</div>
+    <div class="twitter-button" onclick="shareTwitter()">X.com</div>
+    <div class="reddit-button" onclick="shareReddit()">Reddit</div>
+    <div class="whatsapp-button" onclick="shareWhatsApp()">WhatsApp</div>
+    </div>
+    <div id="shareResultMobile" class="center">
+        <div id="shareButton" class="share-button" onclick="share()">リンクをコピーする</div>
+        </div>
+
+<div class="row">
+<div class="text-center">
+<div id="append-rate"></div>
+<div class="sharethis-inline-share-buttons"></div>
+</div>
+</div>
+<!--<div class="row">
+    <div class="block block-728"></div>
+    <div class="block block-728"></div>
+    <div class="block block-300"></div>
+    <div class="block block-300"></div>
+</div>-->
+<div class="other__game">
+<div class="container">
+<div class="row">
+<h2 class="orther-game">io ゲームをプレイする</h2>
+<div id="ajax-append">
+<div class="games-child">
+
+<a class="a-child" href="https://bitlife-online.com/" target="_blank" rel="noopener">
+<div class="child-image">
+<img loding="lazy" width="170" height="170" src="https://bitlife-online.pages.dev/icons/icon-192x192.png" alt="Bitlife Online icon">
+</div>
+<div class="child-info">
+<div class="text-overflow child-title">Bitlife Online</div>
+<div class="center-box child-scores">
+<div class="d-flex group-star">
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+</div>
+<span class="rate-average">4.5</span>
+</div>
+<div class="text-overflow child-excerpt">Bitlife ゲームのブロックが解除されました</div>
+</div>
+</a>
+
+<a class="a-child" href="https://flipacoin.org.uk/" target="_blank" rel="noopener">
+<div class="child-image">
+<img loding="lazy" width="170" height="170" src="https://coinflipgame.pages.dev/images/icons/icon-192x192.png" alt="Flip a coin game">
+</div>
+<div class="child-info">
+<div class="text-overflow child-title">Flip a coin</div>
+<div class="center-box child-scores">
+<div class="d-flex group-star">
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+</div>
+<span class="rate-average">4.5</span>
+</div>
+<div class="text-overflow child-excerpt">Flip a coin online</div>
+</div>
+</a>
+
+
+<a class="a-child" href="https://spendmoneyelonmusk.com/" target="_blank" rel="noopener">
+    <div class="child-image">
+    <img loding="lazy" width="170" height="170" src="https://spendmoney.pages.dev/icons/icon-192x192.png" alt="Drift Boss icon">
+    </div>
+    <div class="child-info">
+    <div class="text-overflow child-title">Spend Elon Musk Money</div>
+    <div class="center-box child-scores">
+    <div class="d-flex group-star">
+    <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+    <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+    </svg>
+    <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+    <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+    </svg>
+    <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+    <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+    </svg>
+    <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+    <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+    </svg>
+    <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+    <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+    </svg>
+    </div>
+    <span class="rate-average">4.6</span>
+    </div>
+    <div class="text-overflow child-excerpt">イーロン・マスクのマネーゲームをブロック解除して過ごす</div>
+    </div>
+    </a>
+
+
+    <a class="a-child" href="https://peperio-teams.com/" target="_blank" rel="noopener">
+        <div class="child-image">
+        <img loding="lazy" width="170" height="170" src="https://paperio-online.pages.dev/icons/icon-192x192.png" alt="Paper io Teams">
+        </div>
+        <div class="child-info">
+        <div class="text-overflow child-title">Paperio Teams</div>
+        <div class="center-box child-scores">
+        <div class="d-flex group-star">
+        <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+        <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+        </svg>
+        <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+        <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+        </svg>
+        <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+        <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+        </svg>
+        <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+        <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+        </svg>
+        <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+        <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+        </svg>
+        </div>
+        <span class="rate-average">4.9</span>
+        </div>
+        <div class="text-overflow child-excerpt">Paper io Teams モード io ゲーム オンライン</div>
+        </div>
+        </a>
+
+        <a class="a-child" href="https://infinite-craft.life/" target="_blank" rel="noopener">
+            <div class="child-image">
+            <img loding="lazy" width="170" height="170" src="https://infinite-craft.pages.dev/icons/icon-192x192.png" alt="Infinite Craft Game">
+            </div>
+            <div class="child-info">
+            <div class="text-overflow child-title">Infinite Craft</div>
+            <div class="center-box child-scores">
+            <div class="d-flex group-star">
+            <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+            <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+            </svg>
+            <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+            <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+            </svg>
+            <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+            <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+            </svg>
+            <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+            <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+            </svg>
+            <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+            <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+            </svg>
+            </div>
+            <span class="rate-average">5.0</span>
+            </div>
+            <div class="text-overflow child-excerpt">Infinite Craft by Neal fun Unblocked</div>
+            </div>
+            </a>
+
+<a class="a-child" href="https://immaculate-grid.com/" target="_blank" rel="noopener">
+<div class="child-image">
+<img loding="lazy" width="170" height="170" src="https://immaculategrid.pages.dev/icons/icon-192x192.png" alt="Immaculate Grid Game">
+</div>
+<div class="child-info">
+<div class="text-overflow child-title">Immaculate Grid</div>
+<div class="center-box child-scores">
+<div class="d-flex group-star">
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+</div>
+<span class="rate-average">4.5</span>
+</div>
+<div class="text-overflow child-excerpt">ブロック解除された真っ白なグリッド</div>
+</div>
+</a>
+
+<a class="a-child" href="https://heardle-game.com/" target="_blank" rel="noopener">
+<div class="child-image">
+<img loding="lazy" width="170" height="170" src="https://heardle-game.pages.dev/icons/icon-192x192.png" alt="Heardle Game">
+</div>
+<div class="child-info">
+<div class="text-overflow child-title">Heardle Game</div>
+<div class="center-box child-scores">
+<div class="d-flex group-star">
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+</div>
+<span class="rate-average">4.7</span>
+</div>
+<div class="text-overflow child-excerpt">ハードル ゲーム アンリミテッド オンライン</div>
+</div>
+</a>
+
+<a class="a-child" href="https://jelly-truck.com/" target="_blank" rel="noopener">
+    <div class="child-image">
+    <img loding="lazy" width="170" height="170" src="https://jellytruckgame.pages.dev/icons/icon-192x192.png" alt="Jelly Truck Game">
+    </div>
+    <div class="child-info">
+    <div class="text-overflow child-title">Jelly Truck</div>
+    <div class="center-box child-scores">
+    <div class="d-flex group-star">
+    <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+    <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+    </svg>
+    <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+    <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+    </svg>
+    <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+    <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+    </svg>
+    <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+    <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+    </svg>
+    <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+    <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+    </svg>
+    </div>
+    <span class="rate-average">4.8</span>
+    </div>
+    <div class="text-overflow child-excerpt">ゼリートラックがオンラインでブロック解除される</div>
+    </div>
+    </a>
+
+    <a class="a-child" href="https://slither-io.online/" target="_blank" rel="noopener">
+        <div class="child-image">
+        <img loding="lazy" width="170" height="170" src="https://slither-io.pages.dev/icons/icon-192x192.png" alt="Slither io Online">
+        </div>
+        <div class="child-info">
+        <div class="text-overflow child-title">Slither io 2</div>
+        <div class="center-box child-scores">
+        <div class="d-flex group-star">
+        <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+        <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+        </svg>
+        <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+        <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+        </svg>
+        <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+        <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+        </svg>
+        <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+        <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+        </svg>
+        <svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+        <path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+        </svg>
+        </div>
+        <span class="rate-average">4.7</span>
+        </div>
+        <div class="text-overflow child-excerpt">スリザーioゲームオンライン</div>
+        </div>
+        </a>
+
+<a class="a-child" href="https://slitherio-online.com/" target="_blank" rel="noopener">
+<div class="child-image">
+<img loding="lazy" width="170" height="170" src="https://slitherio.pages.dev/icons/icon-192x192.png" alt="Slitherio Online">
+</div>
+<div class="child-info">
+<div class="text-overflow child-title">Slitherio Online</div>
+<div class="center-box child-scores">
+<div class="d-flex group-star">
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+</div>
+<span class="rate-average">4.9</span>
+</div>
+<div class="text-overflow child-excerpt">スリザリオオンライン</div>
+</div>
+</a>
+
+<a class="a-child" href="https://2048cupcakes.co.uk/" target="_blank" rel="noopener">
+<div class="child-image">
+<img loding="lazy" width="170" height="170" src="https://2048-cupcakes.pages.dev/style/img/icon-192x192.png" alt="2048 cupcakes game">
+</div>
+<div class="child-info">
+<div class="text-overflow child-title">2048 Cupcakes</div>
+<div class="center-box child-scores">
+<div class="d-flex group-star">
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+<svg fill="#fbcf3a" width="15" height="15" viewBox="0 -10 511.98685 511" width="12" xmlns="https://www.w3.org/2000/svg">
+<path d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"/>
+</svg>
+</div>
+<span class="rate-average">4.7</span>
+</div>
+<div class="text-overflow child-excerpt">2048 カップケーキ オンライン ゲーム</div>
+</div>
+</a>
+
+
+</div>
+</div></div></div></div>
+
+<div class="content__game">
+<div class="container">
+<div class="row">
+<div class="site-content">
+<div class="bread-crumb">
+<div class="row">
+<div class="overwrite-breadcumb">
+<div class="d-flex al sp bread-crumb-list">
+<div class="d-flex al sp">
+<a class="bread-crumb-item" href="./">ホーム </a>
+<span class="bread-crumb-item bread-after">スイカゲーム オンライン</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+                
+<div>
+    <h1>すいかゲームオンライン： ゲーム現象を深く掘り下げる</h1>
+    
+    <p>すいか戦 は、手に汗握る革新的なゲームで、リリース以来、ゲーム界に旋風を巻き起こしました。先見の明のあるクリエイターチームによって開発されたこのゲームは、その没入感のあるゲームプレイと魅惑的なストーリーで世界中のプレイヤーを魅了しました。この記事では、「Suika Game」のゲームプレイの仕組みやストーリー、そしてゲーム業界に与えた影響について掘り下げる。</p>
+    
+    <h2>ゲームプレイのメカニズム</h2>
+    
+    <p>スイカゲームは、アクション、ストラテジー、アドベンチャーのゲームプレイ要素をユニークに融合させたゲームです。プレイヤーは主人公となり、挑戦と危険に満ちたミステリアスな世界に放り込まれます。直感的な操作で、戦闘、謎解き、探索を行いながら、シームレスに環境を移動することができます。
+    </p>
+    <p>スイカゲーム」の際立った特徴のひとつは、ダイナミックな意思決定システムです。ゲーム中のプレイヤーの選択がストーリーに影響を与え、旅の結末を形作る。この分岐する物語がゲームに深みとリプレイバリューを与え、プレイヤーに様々な道や結果を探求するよう促す。
+    </p>
+    <p>スイカゲーム」の戦闘システムはテンポが速く、アドレナリン全開。プレイヤーは様々な武器や能力を使いこなし、手強い敵やボスに打ち勝たなければならない。この容赦ない世界で生き残るためには、戦略的思考と素早い反射神経が不可欠だ。
+    </p>
+    <h2>ストーリー</h2>
+    
+    <p>スイカゲーム」の核となるのは、プレイヤーがゲームを進めるにつれて展開される、豊かで没入感のあるストーリーだ。ストーリーは紆余曲折と予想外の展開に満ちており、プレイヤーは最初から最後までハラハラドキドキの連続だ。
+    </p>
+    <p>物語は、主人公が記憶のない不思議な世界で目覚めるところから始まる。自分の過去に関する真実を明らかにするために旅に出る彼らは、それぞれに動機と秘密を抱えた多彩な登場人物たちと出会う。その過程でプレイヤーは、政治的陰謀、古代の予言、現実そのものを解きほぐそうとする超自然的な力を操らなければならない。
+    </p>
+    <p>スイカゲームの特徴は、プレイヤーの主体性を重視していることだ。プレイヤーは受動的な観察者ではなく、ストーリーの方向性を形作る積極的な参加者なのだ。プレイヤーが下す決断にはすべて結果が伴い、その選択によって複数のエンディングや結末が用意されている。
+    </p>
+    <h2>ゲーミング業界への影響</h2>
+    
+    <p>リリース以来、「スイカゲーム」はゲーム業界に多大な影響を与えてきた。その革新的なゲームプレイメカニズムと魅力的なストーリーは、インタラクティブなストーリーテリングの新たな基準を打ち立てた。このゲームは、数え切れないほどの開発者に、プレイヤーの選択と結果を自分のプロジェクトに統合する新しい方法を探求するインスピレーションを与えました。
+    </p>
+    <p>さらに、スイカ・ゲームは熱心なファン層を開拓し、コミュニティ主導のコンテンツ制作、ファンアート、ディスカッションを通じてゲームを支え続けている。その成功は、ゲームが単なる娯楽ではなく、意味のあるストーリーテリングと感情移入のための媒体である可能性を実証した。
+    </p>
+    <p>結論として、「スイカゲーム」はゲームにおける創造性と革新の力を証明するものである。魅力的なゲームプレイ、没入感のあるストーリー、そしてゲーム業界に与えた永続的な影響により、本作は現代の名作として、また世界中のゲーマーにとって必ずプレイすべき作品として、その地位を確立している。
+    </p>
+                 
+    <h2>スイカゲームFAQ</h2>
+    <h3>1. すいかゲームとは</h3>
+スイカゲームは、先見の明のあるクリエイターチームによって開発された没入型アクションアドベンチャーゲームです。神秘的で魅惑的な世界を舞台に、戦闘、謎解き、探索などのゲームプレイ要素がユニークに融合しています。
+
+<h3>2.スイカゲームはどんなプラットフォームでプレイできますか？
+<p>すいかゲームは現在、PC、PlayStation、Xbox、Nintendo Switchなど、主要なゲームプラットフォームでプレイ可能です。
+</p>
+<h3>3.スイカゲームのストーリーは？
+<p>『スイカゲーム』のストーリーは、記憶のない不思議な世界で目覚めた主人公の旅を描いている。周囲の環境を探検し、さまざまな登場人物と交流するうちに、自分の過去や住んでいる世界についての秘密が明らかになっていきます。シナリオは紆余曲折と予想外の展開に満ちており、最初から最後までプレイヤーを飽きさせない。
+</p>
+<h3>4.スイカゲームの意思決定システムはどうなっていますか</h3>?
+<p>『すいかゲーム』には、プレイヤーの選択によって物語の結末を形作ることができる、ダイナミックな意思決定システムが搭載されています。ゲーム中、プレイヤーは決断次第で分岐する道や複数のエンディングに遭遇します。これらの選択は、キャラクターの人間関係やストーリー上の出来事、そして主人公の最終的な運命に影響を及ぼし、広範囲に及ぶ結果をもたらす可能性がある。
+</p>
+<h3>5. すいかゲーム」の主なゲームプレイの仕組みは何ですか</h3>?
+<p>「スイカゲーム」のゲームプレイは、探索、戦闘、謎解きを中心に展開します。プレイヤーはゲームを進めるために、多様な環境をナビゲートし、ペースの速い戦闘に参加し、複雑なパズルを解かなければなりません。さらに、このゲームにはさまざまな武器や能力、アップグレードが用意されており、プレイヤーは自分のプレイスタイルに合わせてアンロックやカスタマイズを行うことができます。
+</p>
+<h3>6.スイカゲームの平均プレイ時間はどれくらいですか</h3>?
+<p>スイカゲームのプレイ時間は、個人のプレイスタイルやゲーム中の選択によって異なります。平均して、メイン ストーリーをクリアするには 20 時間から 30 時間かかります。しかし、すべての可能なパスとエンディングを探索したいプレイヤーは、「スイカゲーム」の世界に没頭する時間が大幅に長くなるかもしれません。
+</p>
+<h3>7.すいかゲームにはマルチプレイやオンライン機能はありますか</h3>？
+</p> <p><b>スイカゲーム </b><b>はその中核において、魅力的な物語と没入感のあるゲームプレイを提供することに重点を置いたシングルプレイヤー体験です。そのため、マルチプレイやオンライン機能はありません。しかし、分岐するストーリーとマルチエンディングにより、リプレイバリューは豊富で、プレイするたびに新たな旅に出ることができます。
+</p>
+<h3>8.すいかゲームは全年齢対象ですか</h3>？
+<p>W ゲームは、暴力、サスペンス、超自然的な要素をテーマにしているため、成熟した視聴者にお勧めします。このゲームには激しい戦闘シーンがあり、若いプレイヤーには適さないかもしれません。お子さまにプレイさせる前に、保護者の方がゲームの内容を確認することをお勧めします。
+</p>
+
+</div>
+</div>
+</div>
+
+<!--<div class="row">
+<div class="block block-728"></div>
+<div class="block block-728"></div>
+<div class="block block-300"></div>
+<div class="block block-300"></div>
+</div>-->
+
+</div></div></div>
+<footer>
+<div class="container">
+<div class="row">
+<div class="menu-footer-bar">
+<a class="link" href="./privacy.html">プライバシーポリシー</a>
+<a class="link" href="./termofuse.html">使用期間</a>
+<a class="link" href="mailto:support@kaloodinaz.github.io">接触</a>
+</div>
+</div>
+</div>
+</footer>
+<script defer src="./index.js"></script>
+</body>
+</html>
